@@ -24,9 +24,9 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
   revealEls.forEach(el => io.observe(el));
 
-  // stagger children inside grids that share the same parent section
+  // stagger children — landing simple: 60ms, no bloqueo de interacción
   document.querySelectorAll('.services-grid, .about-points, .catalog-grid, .gallery-grid, .contact-cards').forEach(group => {
     Array.from(group.children).forEach((child, i) => {
-      child.style.transitionDelay = (i * 90) + 'ms';
+      child.style.transitionDelay = (i * 60) + 'ms';
     });
   });
