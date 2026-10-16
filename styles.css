@@ -287,7 +287,7 @@
     .gallery-item.empty:hover{ border-color:rgba(255,255,255,0.14); }
   }
   @media (max-width:1020px){ .gallery-grid{ grid-template-columns:repeat(6,1fr); grid-auto-rows:184px; } .gallery-item:nth-child(1){ grid-column: span 6; grid-row: span 2; } .gallery-item:nth-child(2){ grid-column: span 3; } .gallery-item:nth-child(3){ grid-column: span 3; } .gallery-item:nth-child(4){ grid-column: span 3; } .gallery-item:nth-child(5){ grid-column: span 3; } .gallery-item:nth-child(6){ grid-column: span 3; } .gallery-item:nth-child(7){ grid-column: span 3; } }
-  @media (max-width:560px){ .gallery-grid{ grid-template-columns:1fr; grid-auto-rows:216px; } .gallery-item:nth-child(n){ grid-column: span 1; grid-row: span 1; } .gallery-item.tall{ grid-row:span 1; } .gallery-caption{ opacity:1; transform:translateY(0); } }
+  @media (max-width:560px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:168px; gap:.7rem; } .gallery-item:nth-child(1){ grid-column:span 2; grid-row:span 2; } .gallery-item:nth-child(n+2){ grid-column:span 1; grid-row:span 1; } .gallery-item:nth-child(4){ grid-column:span 2; } .gallery-item:nth-child(7){ grid-column:span 2; } .gallery-item.tall{ grid-row:span 2; } .gallery-caption{ opacity:1; transform:translateY(0); padding:.8rem .75rem .7rem; } .gallery-caption .g-title{ font-size:.8rem; } }
 
   /* ---------- Contact - landing simple ---------- */
   .contact{ background: var(--bg-alt); border-top:1px solid rgba(255,255,255,0.06); }
@@ -364,4 +364,36 @@
 /* Mapa contacto - Buchardo 1838 */
 .map-box{ margin-top:.4rem; padding:1rem; border:1px solid rgba(255,255,255,0.07); border-radius:var(--radius); background:var(--card); }
 .map-box .label{ font-family:'JetBrains Mono'; font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--grey-dim); }
-.map-box iframe{ width:100%; height:280px; border:0; border-radius:12px; display:block; filter:saturate(1.02); }
+.map-box iframe{ width:100%; max-width:100%; height:280px; border:0; border-radius:12px; display:block; filter:saturate(1.02); }
+
+/* ---------- Responsive movil ---------- */
+img, iframe{ max-width:100%; }
+.burger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2){ opacity:0; }
+.burger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+@media (max-width:860px){
+  nav.links{ display:flex; gap:.8rem; }
+  nav.links a:not(.nav-cta){ display:none; }
+  .nav-cta{ padding:.55rem .95rem; }
+  .burger{ display:flex; }
+  .about-grid{ grid-template-columns:1fr; }
+  .contact-grid{ grid-template-columns:1fr; gap:2rem; }
+}
+@media (max-width:560px){
+  section{ padding:3.5rem 0; }
+  .hero{ padding:6.5rem 1.25rem 3.5rem; min-height:92svh; }
+  .hero-logo{ height:88px; }
+  .hero-content h1{ font-size:1.75rem; line-height:1.05; }
+  .hero-timecode{ font-size:.68rem; }
+  .section-title{ font-size:1.55rem; line-height:1.1; }
+  .hero-actions{ flex-direction:column; align-items:stretch; width:100%; max-width:340px; }
+  .hero-actions .btn{ width:100%; justify-content:center; }
+  .about-media{ aspect-ratio:4/3; }
+  .map-box iframe{ height:240px; }
+  .contact-card{ padding:1.1rem; }
+  .contact-card .info{ min-width:0; }
+  .contact-card .info .value{ font-size:.95rem; overflow-wrap:anywhere; }
+  .float-wa{ width:50px; height:50px; bottom:1rem; right:1rem; }
+  .mobile-menu a{ font-size:1.3rem; }
+  .footer-bottom{ justify-content:center; text-align:center; }
+}

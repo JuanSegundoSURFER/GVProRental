@@ -9,8 +9,14 @@
   const menu = document.getElementById('mobileMenu');
   burger.addEventListener('click', () => {
     menu.classList.toggle('open');
+    burger.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
   });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    burger.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
 
   // reveal on scroll
   const revealEls = document.querySelectorAll('.reveal');
