@@ -111,6 +111,7 @@
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   .hero-content{ position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; max-width:720px; }
+  .hero-timecode{ position:relative; z-index:2; transform: translateY(-3rem); margin-bottom:.4rem; }
   .hero-kicker{ font-family:'JetBrains Mono', monospace; font-size:.64rem; letter-spacing:.18em; text-transform:uppercase; color:var(--green); margin-bottom:1rem; opacity:0; animation: fadeUp 600ms var(--ease-out) .1s forwards; }
   .hero-logo{
     width:auto; height:110px; max-width:180px; margin-bottom:1.3rem; opacity:0; animation: fadeUp 600ms var(--ease-out) .14s forwards;
@@ -370,16 +371,8 @@
 .gallery-grid .gallery-item:nth-child(3){ transition-delay:100ms; }
 .gallery-grid .gallery-item:nth-child(4){ transition-delay:150ms; }
 
-/* Galería: título resaltado en amarillo con texto oscuro */
-#galeria .section-title .hl{
-  background:var(--green);
-  color:var(--bg);
-  padding:.2em .3em;
-  border-radius:0;
-  box-decoration-break:clone;
-  -webkit-box-decoration-break:clone;
-  line-height:1.4;
-}
+/* Galería: título igual al de catálogo (texto plano, sin fondo) */
+#galeria .section-title{ color:var(--white); margin-bottom:.4rem; }
 
 /* Mapa contacto - Buchardo 1838 */
 .map-box{ margin-top:.4rem; padding:1rem; border:1px solid rgba(255,255,255,0.07); border-radius:var(--radius); background:var(--card); }
@@ -417,3 +410,14 @@ img, iframe{ max-width:100%; }
   .mobile-menu a{ font-size:1.3rem; }
   .footer-bottom{ justify-content:center; text-align:center; }
 }
+
+/* ---------- Lightbox nav arrows ---------- */
+.lightbox-nav{ position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border-radius:50%; border:1px solid var(--green); background:var(--green); color:#0d0e0d; font-size:1.1rem; line-height:1; display:flex; align-items:center; justify-content:center; cursor:pointer; opacity:.85; transition:opacity 200ms ease, transform 160ms var(--ease-out); z-index:10; }
+.lightbox-nav.lightbox-prev{ left:1.5rem; }
+.lightbox-nav.lightbox-next{ right:1.5rem; }
+.lightbox-nav:active{ transform:translateY(-50%) scale(.92); }
+@media (hover: hover) and (pointer: fine){
+  .lightbox-nav:hover{ opacity:1; transform:translateY(-50%) scale(1.05); }
+}
+
+a:focus-visible, button:focus-visible{ outline:2px solid var(--green); outline-offset:3px; }
